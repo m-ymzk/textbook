@@ -25,23 +25,39 @@
 
 この教材の目的は、実際に手を動かしてGit/GitHubの基本操作を習得することです。各章は説明→実例→練習課題の順で構成します。
 
+## クイックスタート（ローカルで手を動かす）
+
+1. このフォルダに移動します:
+
+```bash
+cd /home/masa/figures/examples
+```
+
+2. セットアップスクリプトを実行して練習用リポジトリを作成します:
+
+```bash
+bash setup_demo.sh
+```
+
+スクリプトはローカルに `demo-practice` を作成し、サンプルコミットとブランチを用意します。
+
 ```mermaid
 graph RL
 	%% Remote repositories
 	subgraph CR["クラウド (GitHub.com等)"]
-	REM["リモートリポジトリ"]
-    end
+		REM["リモートリポジトリ"]
+	end
 
 	%% Local PC2 area
 	subgraph PC2["他の人の環境2"]
 		direction TB
-		LREP2["Local Repogitory"]
+		LREP2["Local Repository"]
 	end
 
 	%% Local PC1 area
 	subgraph PC1["他の人の環境1"]
 		direction TB
-		LREP1["Local Repogitory"]
+		LREP1["Local Repository"]
 	end
 
 	%% Local PC area
@@ -49,7 +65,7 @@ graph RL
 		direction TB
 		IDX["Staged"]
 		MGX["conflicted"]
-		LREP["Local Repogitory"]
+		LREP["Local Repository"]
 	end
 
 	%% Commands between components
@@ -70,15 +86,12 @@ graph RL
 	IDX -->|commit| MGX
 
 	%% Notes style
-	classDef note fill:#939,stroke:#333,stroke-width:1px;
-	class REM,REMS note
+	classDef note fill:#939,stroke:#333,stroke-width:1px,color:#fff;
+	class REM note
 ```
 
 ## 次のステップ
 
-1. 各章の詳細アウトラインを作成して下書きします。
-2. 最初の章（学習環境の準備）を執筆します。
-
-----
-
-作業はこの `README.md` を出発点に進めます。次に「レッスンアウトライン」を作成してよろしいですか？
+1. `lessons` の各章に目次の詳細アウトラインを反映（担当: 自分・目安: 1日）
+2. `01 学習環境の準備` を完成させて動作確認（担当: 自分・目安: 半日）
+3. `examples/setup_demo.sh` を使ってローカルでハンズオンを実行してみる（担当: 自分・目安: 30分）
